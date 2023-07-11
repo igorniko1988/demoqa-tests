@@ -3,12 +3,12 @@ from selene import have, be, by
 from selenium.webdriver import Keys
 from selene import command
 from pathlib import Path
-from demoqa_tests.pages.registration import registration
+from demoqa_tests.pages.application import app
 
 def test_user_can_register(user):
-    registration.open("automation-practice-form")
-    registration.register(user)
-    registration.registered_user_should_be(
+    app.registration.open("automation-practice-form")
+    app.registration.register(user)
+    app.registration.registered_user_should_be(
         user.firstname,
         user.lastname,
         user.useremail,
