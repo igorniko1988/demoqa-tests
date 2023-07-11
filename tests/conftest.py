@@ -19,9 +19,11 @@ def attach():
 
 @pytest.fixture(autouse=True)
 def browser_config():
-    browser.config.driver_options = FirefoxOptions()
+    options = ChromeOptions()
+    options.headless = True
+    browser.config.driver_options = options
     browser.config.base_url = "https://demoqa.com/"
-    browser.config.driver_name = "firefox"
+    browser.config.driver_name = "chrome"
     browser.config.window_width = 1920
     browser.config.window_height = 1080
 
