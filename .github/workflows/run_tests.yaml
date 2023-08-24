@@ -1,25 +1,24 @@
-name: Automated tests
+name: Test
 
 on:
-  push
+  push:
 
 jobs:
   test:
+    name: Test
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Setup python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
         with:
-          python-version: "3.10"
-      - name: Install Chrome
-        run: sudo apt-get install google-chrome-stable
-      - name: Install requirements
-        run: pip install -r requirements.txt
-      - name: Run Tests
-        run: pytest --alluredir=allure-results
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          pytest --alluredir=allure-results
 
       - name: Get Allure history
         uses: actions/checkout@v2
