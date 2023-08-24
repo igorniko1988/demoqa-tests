@@ -20,7 +20,7 @@ def attach():
 @pytest.fixture(autouse=True)
 def browser_config():
     options = ChromeOptions()
-    options.add_argument('--headless=new')
+    # options.add_argument('--headless=new')
     browser.config.driver_options = options
     browser.config.base_url = "https://demoqa.com/"
     browser.config.driver_name = "chrome"
